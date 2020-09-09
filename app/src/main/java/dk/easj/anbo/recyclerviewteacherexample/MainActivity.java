@@ -31,11 +31,10 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new RecyclerViewSimpleAdapter<>(Arrays.asList(allTeachers));
         recyclerView.setAdapter(adapter);
-        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener() {
+        adapter.setOnItemClickListener(new RecyclerViewSimpleAdapter.OnItemClickListener<Teacher>() {
 
             //@Override
-            public void onItemClick(View view, int position, Object obj) {
-                Teacher teacher = (Teacher) obj;
+            public void onItemClick(View view, int position, Teacher teacher) {
                 Log.d(LOG_TAG, "Clicked " + position + " " + adapter.getItemId(position) + " " + teacher);
                 Intent intent = new Intent(getBaseContext(), TeacherDetailActivity.class);
                 intent.putExtra(TeacherDetailActivity.TEACHER, teacher);
@@ -47,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void orderByNameClicked(View view) {
         Arrays.sort(allTeachers, new Comparator<Teacher>() {
             // modern Java does have Lambda expressions
+            // https://developer.android.com/studio/write/java8-support
             @Override
             public int compare(Teacher t1, Teacher t2) {
                 return t1.getName().compareToIgnoreCase(t2.getName());

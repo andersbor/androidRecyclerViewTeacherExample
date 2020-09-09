@@ -2,9 +2,9 @@ package dk.easj.anbo.recyclerviewteacherexample;
 
 class Teachers {
     private static final Teacher[] teachers = new Teacher[]{
-            new Teacher(1, "Anders", "anbo@easj.dk", 1000),
-            new Teacher(2, "Peter", "pele@easj.dk", 1100),
-            new Teacher(3, "Michael", "micl@easj.dk", 1200)
+            new Teacher(1, "Anders", "anbo@zealand.dk", 1000),
+            new Teacher(2, "Peter", "pele@zealand.dk", 1100),
+            new Teacher(3, "Michael", "micl@zealand.dk", 1200)
     };
 
     public static Teacher[] getAllTeachers() {
